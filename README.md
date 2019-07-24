@@ -2,8 +2,13 @@
 
 custom codec for grpc server sidecar
 
-## Usage
+`fix it`
 
+```
+... is not proto.Message: missing method ProtoMessage
+```
+
+## Usage
 
 ```
 import (
@@ -13,7 +18,7 @@ import (
 gs := grpc.NewServer(
 	grpc.MaxConcurrentStreams(3000),
 	grpc.UnknownServiceHandler(defaultHandler),
-	grpc.CustomCodec(codec.GetCodec()),
+	grpc.CustomCodec(codec.GetProxyCodec()),
 )
 
 

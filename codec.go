@@ -8,10 +8,10 @@ import (
 )
 
 var (
-	DefaultRawCodec = GetCodec()
+	DefaultRawCodec = GetProxyCodec()
 )
 
-func GetCodec() grpc.Codec {
+func GetProxyCodec() grpc.Codec {
 	return CodecWithParent(&protoCodec{})
 }
 
@@ -62,4 +62,3 @@ func (protoCodec) Unmarshal(data []byte, v interface{}) error {
 func (protoCodec) String() string {
 	return "proto"
 }
-
